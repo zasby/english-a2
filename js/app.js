@@ -115,6 +115,7 @@
   const sizeClass = (text) => (text.length > 40 ? "xlong" : text.length > 22 ? "long" : "");
   const lessonLabel = (lesson) => (lesson.length > 3 ? lesson : `Урок ${lesson}`);
   const lessonShort = (lesson) => lesson.replace("Practical English ", "PE");
+  const lessonBadge = (g) => esc(lessonLabel(g.lesson)) + (g.page ? ` · стр. ${g.page}` : "");
   const isVerbForms = (en) => /\s[–—]\s/.test(en);
 
   // Сравнение ответов: без регистра, пунктуации, апострофов и начального артикля.
@@ -222,8 +223,8 @@
 
   function sectionDeck(sec) {
     return {
-      key: sec.id, hash: `#/s/${sec.id}`, title: sec.title, ru: sec.ru,
-      color: sec.color, icon: sec.icon, page: sec.page, bonus: sec.bonus, groups: sec.groups
+      key: sec.id, hash: `#/s/${sec.id}`, title: sec.title, ru: sec.ru, color: sec.color, icon: sec.icon,
+      page: sec.page, bonus: sec.bonus, source: sec.source, file: sec.file, groups: sec.groups
     };
   }
 
@@ -271,7 +272,7 @@
         <span class="w-en" lang="en">${esc(c.en)}</span>${c.ipa ? ` <span class="w-ipa">/${esc(c.ipa)}/</span>` : ""}
         ${c.note ? `<span class="w-note" lang="en">${esc(c.note)}</span>` : ""}
         <span class="w-ru">${esc(c.ru)}</span>
-        ${withSection ? `<a class="w-sec" href="#/s/${c.sec.id}">${esc(c.sec.title)} · стр. ${c.sec.page}</a>` : ""}
+        ${withSection ? `<a class="w-sec" href="#/s/${c.sec.id}">${esc(c.sec.title)} · стр. ${c.group.page || c.sec.page}</a>` : ""}
       </span>
       <button class="icon-btn" data-action="say" data-id="${esc(c.id)}" aria-label="Произнести ${esc(c.en)}">🔊</button>
     </li>`;
@@ -288,7 +289,7 @@
     const lessons = [...new Set(sec.groups.map((g) => g.lesson).filter(Boolean))].map(lessonShort);
     return `<a class="tile" href="#/s/${sec.id}" style="--c:${sec.color}">
       <div class="tile-top">
-        <span class="tile-no">${sec.bonus ? "Бонус" : String(sec.no).padStart(2, "0")}</span>
+        <span class="tile-no">${sec.bonus ? "Бонус" : sec.source === "lesson" ? `File ${sec.file}` : String(sec.no).padStart(2, "0")}</span>
         <span class="tile-icon" aria-hidden="true">${sec.icon}</span>
       </div>
       <h3 lang="en">${esc(sec.title)}</h3>
@@ -307,7 +308,7 @@
       <header class="hero">
         <p class="kicker">English File · Elementary · 4th edition</p>
         <h1>Vocabulary Bank</h1>
-        <p class="lead">Карточки для запоминания слов — по тем же разделам и группам, что и в конце учебника (стр. 148–165).</p>
+        <p class="lead">Карточки для запоминания слов — по разделам Vocabulary Bank в конце учебника (стр. 148–165) и по блокам VOCABULARY из уроков, которых в Vocabulary Bank нет.</p>
         <div class="hero-stats">
           <div class="stat"><b>${s.total}</b><span>карточек</span></div>
           <div class="stat good"><b>${s.known}</b><span>знаю</span></div>
@@ -328,9 +329,12 @@
       </div>
       <div id="search-results" aria-live="polite"></div>
       <h2 class="grid-title">Разделы Vocabulary Bank</h2>
-      <div class="grid">${SECTIONS.map(tileHTML).join("")}</div>
+      <div class="grid">${SECTIONS.filter((x) => x.source !== "lesson").map(tileHTML).join("")}</div>
+      <h2 class="grid-title">Слова из уроков</h2>
+      <p class="grid-note">Блоки VOCABULARY из уроков, которых нет в Vocabulary Bank, — по одному разделу на File учебника.</p>
+      <div class="grid">${SECTIONS.filter((x) => x.source === "lesson").map(tileHTML).join("")}</div>
       <footer class="foot">
-        <p>Слова и группы — из Vocabulary Bank учебника English File Elementary (4th edition, Oxford University Press). Переводы, транскрипции и эмодзи добавлены для самостоятельной работы.</p>
+        <p>Слова и группы — из Vocabulary Bank и уроков учебника English File Elementary (4th edition, Oxford University Press). Переводы, транскрипции и эмодзи добавлены для самостоятельной работы.</p>
         <p>Прогресс хранится только в этом браузере. <button class="link danger" data-action="reset-all">Сбросить весь прогресс</button></p>
       </footer>`;
   }
@@ -356,14 +360,15 @@
       <input type="checkbox" data-group="${esc(g.id)}" ${on ? "checked" : ""}>
       <span class="g-no">${g.no}</span>
       <span class="g-title"><b lang="en">${esc(g.title)}</b><small>${esc(g.ru)}</small></span>
-      ${g.lesson ? `<span class="badge">${esc(lessonLabel(g.lesson))}</span>` : ""}
+      ${g.lesson ? `<span class="badge">${lessonBadge(g)}</span>` : ""}
       <span class="g-count" title="знаю / всего">${s.known}/${s.total}</span>
     </label>`;
   }
 
   function groupBlock(g, withSection) {
     return `<div class="g-block">
-      <h3><span class="g-no">${g.no}</span><span lang="en">${esc(g.title)}</span> <small>${esc(g.ru)}</small></h3>
+      <h3><span class="g-no">${g.no}</span><span lang="en">${esc(g.title)}</span> <small>${esc(g.ru)}</small>
+        ${g.page ? `<span class="badge">${lessonBadge(g)}</span>` : ""}</h3>
       ${g.extra ? `<p class="extra">ℹ️ ${esc(g.extra)}</p>` : ""}
       <ul class="words">${g.cards.map((c) => wordRow(c, withSection)).join("")}</ul>
       ${(g.tips || []).map((t) => `<div class="tip"><b lang="en">💡 ${esc(t.title)}</b><p>${esc(t.text)}</p></div>`).join("")}
@@ -399,7 +404,9 @@
     const count = deckCards(deck).length;
     const kicker = deck.isMix
       ? "Повторение по всем разделам"
-      : `Vocabulary Bank · стр. ${deck.page}${deck.bonus ? " · бонус" : ""}`;
+      : deck.source === "lesson"
+        ? `File ${deck.file} · слова из уроков · стр. ${deck.page}`
+        : `Vocabulary Bank · стр. ${deck.page}${deck.bonus ? " · бонус" : ""}`;
 
     app.innerHTML = `
       <a class="back" href="#/">← Все разделы</a>
@@ -451,7 +458,7 @@
       </div>
 
       <section class="book" style="--c:${deck.color}">
-        <h2>${deck.isMix ? "Слова на повторении" : "Страница учебника"}</h2>
+        <h2>${deck.isMix ? "Слова на повторении" : deck.source === "lesson" ? "Слова из уроков" : "Страница учебника"}</h2>
         ${deck.groups.map((g) => groupBlock(g, deck.isMix)).join("")}
       </section>
       ${deck.isMix ? "" : `<p class="reset"><button class="link danger" data-action="reset">Сбросить прогресс раздела</button></p>`}`;

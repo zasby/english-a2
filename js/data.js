@@ -1,9 +1,12 @@
 // Vocabulary Bank — English File Elementary (4th edition), стр. 148–164,
 // плюс таблица Irregular verbs (стр. 165).
 //
-// Раздел  = страница Vocabulary Bank.
+// После Vocabulary Bank идут «Слова из уроков» (source: "lesson") — блоки VOCABULARY
+// из уроков, которых нет в Vocabulary Bank, по одному разделу на File учебника.
+//
+// Раздел  = страница Vocabulary Bank (или File учебника для слов из уроков).
 // Группа  = пронумерованный блок на странице (1 DAYS OF THE WEEK, 2 NUMBERS 0–20 …).
-// lesson  = урок учебника, из которого ведёт ссылка на эту страницу.
+// lesson  = урок учебника, из которого ведёт ссылка на эту страницу; page у группы — страница урока.
 // Слово   = [английский, транскрипция, перевод, эмодзи, пометка]
 //           (последние три поля необязательные; пометка показывается на английской стороне)
 
@@ -736,24 +739,6 @@ window.VOCAB = [
           ["two thousand and eight", "", "2008 (год)", "", "for years 2000–2010"],
           ["twenty eleven", "", "2011 (год)", "", "or two thousand and eleven"]
         ]
-      },
-      {
-        id: "months", title: "Months", ru: "Месяцы", lesson: "4C",
-        extra: "Месяцев нет на этой странице Vocabulary Bank — они из урока 4C, но нужны, чтобы называть даты.",
-        words: [
-          ["January", "ˈdʒænjuəri", "январь", "❄️"],
-          ["February", "ˈfebruəri", "февраль"],
-          ["March", "mɑːtʃ", "март"],
-          ["April", "ˈeɪprəl", "апрель"],
-          ["May", "meɪ", "май", "🌸"],
-          ["June", "dʒuːn", "июнь"],
-          ["July", "dʒuˈlaɪ", "июль", "☀️"],
-          ["August", "ˈɔːgəst", "август"],
-          ["September", "sepˈtembə", "сентябрь", "🍁"],
-          ["October", "ɒkˈtəʊbə", "октябрь"],
-          ["November", "nəʊˈvembə", "ноябрь"],
-          ["December", "dɪˈsembə", "декабрь", "🎄"]
-        ]
       }
     ]
   },
@@ -1140,6 +1125,494 @@ window.VOCAB = [
           ["wear – wore – worn", "weə – wɔː – wɔːn", "носить (одежду)"],
           ["win – won – won", "wɪn – wʌn – wʌn", "выигрывать, побеждать"],
           ["write – wrote – written", "raɪt – rəʊt – ˈrɪtn", "писать"]
+        ]
+      }
+    ]
+  },
+
+  // ---------- Слова из уроков: блоки VOCABULARY, которых нет в Vocabulary Bank ----------
+  // source: "lesson" — раздел собран из уроков одного File учебника; page — страницы уроков.
+  // Слова, которые уже есть в Vocabulary Bank (a wall, opposite, a bridge…), здесь не повторяются.
+
+  {
+    id: "file-1", source: "lesson", file: 1, page: "10, 12", icon: "🏨",
+    title: "Classroom and hotel", ru: "Класс и отель",
+    groups: [
+      {
+        id: "classroom-things", title: "Things in the classroom", ru: "Предметы в классе", lesson: "1C", page: 10,
+        activation: "With a partner, ask about things in your classroom. What's this? — It's a chair. What's that? — It's a window.",
+        words: [
+          ["a board", "bɔːd", "доска"],
+          ["a chair", "tʃeə", "стул", "🪑"],
+          ["a computer", "kəmˈpjuːtə", "компьютер", "🖥️"],
+          ["a desk", "desk", "письменный стол, парта"],
+          ["a door", "dɔː", "дверь", "🚪"],
+          ["a picture", "ˈpɪktʃə", "картина, картинка", "🖼️"],
+          ["a table", "ˈteɪbl", "стол"],
+          ["a window", "ˈwɪndəʊ", "окно", "🪟"]
+        ]
+      },
+      {
+        id: "hotel", title: "In a hotel", ru: "В отеле", lesson: "Practical English 1", page: 12,
+        activation: "Cover the words and look at the symbols. Say the words.",
+        tips: [
+          { title: "Floors", text: "В Британии the ground floor — этаж на уровне земли (наш первый), the first floor — наш второй этаж." }
+        ],
+        words: [
+          ["reception", "rɪˈsepʃn", "стойка регистрации, ресепшен", "🛎️"],
+          ["the lift", "lɪft", "лифт", "🛗"],
+          ["a single room", "ˌsɪŋgl ˈruːm", "одноместный номер", "🛏️"],
+          ["a double room", "ˌdʌbl ˈruːm", "двухместный номер (с одной большой кроватью)"],
+          ["the bar", "bɑː", "бар", "🍸"],
+          ["the ground floor", "ˌgraʊnd ˈflɔː", "первый этаж (на уровне земли)", "", "the first, second, etc. floor"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-2", source: "lesson", file: 2, page: "16, 18", icon: "🎨",
+    title: "Colours and feelings", ru: "Цвета и чувства",
+    groups: [
+      {
+        id: "colours", title: "Colours", ru: "Цвета", lesson: "2B", page: 16,
+        activation: "With a partner, practise colours with things in the classroom or in your bag. What colour is my purse? — It's red.",
+        tips: [
+          { title: "Colours are adjectives", text: "Цвета, как и другие прилагательные, стоят перед существительным и не меняются во множественном числе: yellow taxis, NOT yellows taxis." }
+        ],
+        words: [
+          ["What colour is it?", "", "Какого это цвета?", "🎨"],
+          ["red", "red", "красный", "🔴"],
+          ["white", "waɪt", "белый", "⚪"],
+          ["blue", "bluː", "синий, голубой", "🔵"],
+          ["black", "blæk", "чёрный", "⚫"],
+          ["yellow", "ˈjeləʊ", "жёлтый", "🟡"],
+          ["grey", "greɪ", "серый"],
+          ["orange", "ˈɒrɪndʒ", "оранжевый", "🟠"],
+          ["brown", "braʊn", "коричневый", "🟤"],
+          ["pink", "pɪŋk", "розовый", "🩷"],
+          ["green", "griːn", "зелёный", "🟢"],
+          ["purple", "ˈpɜːpl", "фиолетовый", "🟣"],
+          ["silver", "ˈsɪlvə", "серебристый", "🥈"],
+          ["gold", "gəʊld", "золотой", "🥇"]
+        ]
+      },
+      {
+        id: "feelings", title: "Feelings", ru: "Чувства и состояния", lesson: "2C", page: 18,
+        activation: "How do you feel? Make true sentences and tell your partner. I'm quite hungry. I'm very tired.",
+        tips: [
+          { title: "Collocation", text: "С этими словами используется be: I'm hungry. NOT I have hungry. «Мне холодно» по-английски — I'm cold." }
+        ],
+        words: [
+          ["angry", "ˈæŋgri", "сердитый, злой", "😠"],
+          ["bored", "bɔːd", "скучающий (мне скучно)", "🥱"],
+          ["cold", "kəʊld", "замёрзший (мне холодно)", "🥶", "I'm cold."],
+          ["frightened", "ˈfraɪtnd", "испуганный (мне страшно)", "😨"],
+          ["happy", "ˈhæpi", "счастливый, довольный", "😊"],
+          ["hot", "hɒt", "(мне) жарко", "🥵", "I'm hot."],
+          ["hungry", "ˈhʌŋgri", "голодный", "😋"],
+          ["sad", "sæd", "грустный", "😢"],
+          ["stressed", "strest", "в стрессе, напряжённый", "😫"],
+          ["thirsty", "ˈθɜːsti", "испытывающий жажду (хочу пить)", "🥤"],
+          ["tired", "ˈtaɪəd", "усталый", "😴"],
+          ["worried", "ˈwʌrid", "обеспокоенный, встревоженный", "😟"],
+          ["What's the matter?", "", "Что случилось? / В чём дело?"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-3", source: "lesson", file: 3, page: "27", icon: "❓",
+    title: "Question words", ru: "Вопросительные слова",
+    groups: [
+      {
+        id: "question-words", title: "Question words", ru: "Вопросительные слова", lesson: "3C", page: 27,
+        activation: "Ask and answer the questions with a partner.",
+        tips: [
+          { title: "What or Which?", text: "Which — выбор из нескольких известных вариантов: Which do you prefer, cats or dogs? What — когда выбор не ограничен. Wh- в Who читается /h/, в остальных словах — /w/." }
+        ],
+        words: [
+          ["What", "wɒt", "что; какой", "", "What phone do you have?"],
+          ["What kind of", "ˌwɒt ˈkaɪnd əv", "какого рода, какой (тип)", "", "What kind of music do you like?"],
+          ["Which", "wɪtʃ", "который, какой (из)", "", "Which do you prefer, cats or dogs?"],
+          ["Who", "huː", "кто", "", "Who's your favourite actor?"],
+          ["Where", "weə", "где, куда", "", "Where do you work?"],
+          ["When", "wen", "когда", "", "When do you have language classes?"],
+          ["Why", "waɪ", "почему", "", "Why do you like him?"],
+          ["Because", "bɪˈkɒz", "потому что", "", "Because he's a fantastic actor."],
+          ["How many", "ˌhaʊ ˈmeni", "сколько (для исчисляемых)", "", "How many brothers and sisters do you have?"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-4", source: "lesson", file: 4, page: "34", icon: "🗓️",
+    title: "Months", ru: "Месяцы",
+    groups: [
+      {
+        id: "months", title: "Months", ru: "Месяцы", lesson: "4C", page: 34,
+        activation: "Say the month of your birthday round the class.",
+        tips: [
+          { title: "Months", text: "Месяцы пишутся с заглавной буквы. В пяти месяцах ударение на второй слог: July, September, October, November, December. С месяцами — предлог in: in May." }
+        ],
+        words: [
+          ["January", "ˈdʒænjuəri", "январь", "❄️"],
+          ["February", "ˈfebruəri", "февраль"],
+          ["March", "mɑːtʃ", "март"],
+          ["April", "ˈeɪprəl", "апрель"],
+          ["May", "meɪ", "май", "🌸"],
+          ["June", "dʒuːn", "июнь"],
+          ["July", "dʒuˈlaɪ", "июль", "☀️"],
+          ["August", "ˈɔːgəst", "август"],
+          ["September", "sepˈtembə", "сентябрь", "🍁"],
+          ["October", "ɒkˈtəʊbə", "октябрь"],
+          ["November", "nəʊˈvembə", "ноябрь"],
+          ["December", "dɪˈsembə", "декабрь", "🎄"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-5", source: "lesson", file: 5, page: "40, 44", icon: "🔊",
+    title: "Noise and clothes", ru: "Шум и одежда",
+    groups: [
+      {
+        id: "noise", title: "Noise: verbs and verb phrases", ru: "Шум: глаголы и словосочетания", lesson: "5B", page: 40,
+        activation: "What noises do your family or neighbours make? Are you noisy? Are people in your country noisy?",
+        words: [
+          ["noisy", "ˈnɔɪzi", "шумный", "🔊"],
+          ["a neighbour", "ˈneɪbə", "сосед, соседка", "🏘️"],
+          ["next door", "ˌnekst ˈdɔː", "по соседству, в соседней квартире", "", "the people next door"],
+          ["cry", "kraɪ", "плакать", "😭", "The baby cries all the time."],
+          ["practise the piano", "", "заниматься на пианино", "🎹"],
+          ["bark", "bɑːk", "лаять", "🐕", "The dog barks all day."],
+          ["have noisy parties", "", "устраивать шумные вечеринки", "🎉"],
+          ["play loud music", "", "громко включать музыку", "🎶"],
+          ["argue", "ˈɑːgjuː", "ссориться, спорить", "🗯️", "The couple next door argue a lot."],
+          ["have the TV on very loud", "", "очень громко включать телевизор", "📺"],
+          ["make a lot of noise", "", "сильно шуметь", "🔨", "The builders make a lot of noise."]
+        ]
+      },
+      {
+        id: "clothes", title: "Clothes", ru: "Одежда", lesson: "Practical English 3", page: 44,
+        activation: "Cover the words and look at the photos. Say the words.",
+        tips: [
+          { title: "Sizes and prices", text: "S = small, M = medium, L = large, XL = extra large. £5.50 = five pounds fifty, 50p = fifty pence." }
+        ],
+        words: [
+          ["a jacket", "ˈdʒækɪt", "куртка, пиджак", "🧥"],
+          ["jeans", "dʒiːnz", "джинсы", "👖", "always plural"],
+          ["a shirt", "ʃɜːt", "рубашка", "👔"],
+          ["a T-shirt", "ˈtiː ʃɜːt", "футболка", "👕"],
+          ["a skirt", "skɜːt", "юбка"],
+          ["shoes", "ʃuːz", "туфли, обувь", "👞"],
+          ["a sweater", "ˈswetə", "свитер", "🧶"],
+          ["trousers", "ˈtraʊzəz", "брюки", "", "always plural"],
+          ["medium", "ˈmiːdiəm", "средний (размер)", "", "M"],
+          ["large", "lɑːdʒ", "большой (размер)", "", "L"],
+          ["try something on", "", "примерить что-то", "🪞", "Can I try it on?"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-6", source: "lesson", file: 6, page: "47, 50", icon: "🎸",
+    title: "Stories and music", ru: "Слова из рассказа и музыка",
+    groups: [
+      {
+        id: "story-words", title: "Words in a story", ru: "Слова из рассказа", lesson: "6A", page: 47,
+        activation: "Put the words in the correct column: adjectives, verbs, nouns, prepositions.",
+        tips: [
+          { title: "desert or dessert?", text: "a desert /ˈdezət/ — пустыня, a dessert /dɪˈzɜːt/ — десерт. Into и through из этого упражнения есть в разделе Prepositions." }
+        ],
+        words: [
+          ["arrive", "əˈraɪv", "прибывать, приезжать", "", "verb"],
+          ["decide", "dɪˈsaɪd", "решать", "", "verb"],
+          ["leave", "liːv", "уезжать, уходить", "", "verb"],
+          ["sell", "sel", "продавать", "💰", "verb"],
+          ["comfortable", "ˈkʌmftəbl", "удобный", "🛋️", "adjective"],
+          ["strange", "streɪndʒ", "странный", "", "adjective"],
+          ["surprised", "səˈpraɪzd", "удивлённый", "😮", "adjective"],
+          ["valuable", "ˈvæljuəbl", "ценный", "💎", "adjective"],
+          ["a desert", "ˈdezət", "пустыня", "🏜️", "noun"],
+          ["a mountain", "ˈmaʊntən", "гора", "⛰️", "noun"],
+          ["a palace", "ˈpæləs", "дворец", "👑", "noun"],
+          ["a village", "ˈvɪlɪdʒ", "деревня", "🏡", "noun"],
+          ["inside", "ˌɪnˈsaɪd", "внутри, внутрь", "", "preposition"],
+          ["towards", "təˈwɔːdz", "по направлению к", "", "preposition"]
+        ]
+      },
+      {
+        id: "instruments", title: "Musical instruments", ru: "Музыкальные инструменты", lesson: "6C", page: 50,
+        activation: "Do you play a musical instrument? How good are you?",
+        tips: [
+          { title: "play the …", text: "С инструментами говорят play the: play the piano, play the drums." }
+        ],
+        words: [
+          ["accordion", "əˈkɔːdiən", "аккордеон", "🪗"],
+          ["bass", "beɪs", "бас-гитара", "🎸"],
+          ["drums", "drʌmz", "барабаны, ударная установка", "🥁"],
+          ["guitar", "gɪˈtɑː", "гитара", "🎸"],
+          ["keyboard", "ˈkiːbɔːd", "клавишные, синтезатор", "🎹"],
+          ["piano", "piˈænəʊ", "фортепиано, пианино", "🎹"],
+          ["saxophone", "ˈsæksəfəʊn", "саксофон", "🎷"],
+          ["trumpet", "ˈtrʌmpɪt", "труба", "🎺"],
+          ["violin", "ˌvaɪəˈlɪn", "скрипка", "🎻"]
+        ]
+      },
+      {
+        id: "musicians", title: "Musicians", ru: "Музыканты", lesson: "6C", page: 50,
+        tips: [
+          { title: "Stress", text: "У некоторых слов ударение смещается: piANo → PIanist, SAXophone → saxOPHonist." }
+        ],
+        words: [
+          ["accordionist", "əˈkɔːdiənɪst", "аккордеонист"],
+          ["bass player", "ˈbeɪs ˌpleɪə", "бас-гитарист"],
+          ["drummer", "ˈdrʌmə", "барабанщик", "🥁"],
+          ["guitarist", "gɪˈtɑːrɪst", "гитарист", "🎸"],
+          ["keyboard player", "ˈkiːbɔːd ˌpleɪə", "клавишник"],
+          ["pianist", "ˈpiːənɪst", "пианист", "🎹"],
+          ["saxophonist", "sækˈsɒfənɪst", "саксофонист", "🎷"],
+          ["trumpet player", "ˈtrʌmpɪt ˌpleɪə", "трубач", "🎺", "or trumpeter"],
+          ["violinist", "ˌvaɪəˈlɪnɪst", "скрипач", "🎻"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-7", source: "lesson", file: 7, page: "55, 57, 60", icon: "🧭",
+    title: "Professions, past time, directions", ru: "Профессии, прошлое время и дорога",
+    groups: [
+      {
+        id: "word-formation", title: "Word formation", ru: "Образование слов: профессии", lesson: "7A", page: 55,
+        activation: "Write the names of famous people. Who's Sia? — She's an Australian singer. Who was Charles Darwin? — He was a British scientist.",
+        tips: [
+          { title: "Word building: professions", text: "К глаголу часто добавляют -er или -or: write → writer, act → actor. К существительному — -ian или -ist: music → musician, piano → pianist." }
+        ],
+        words: [
+          ["writer", "ˈraɪtə", "писатель", "✍️", "write → writer"],
+          ["singer", "ˈsɪŋə", "певец, певица", "🎤", "sing → singer"],
+          ["painter", "ˈpeɪntə", "художник (живописец)", "🎨", "paint → painter"],
+          ["composer", "kəmˈpəʊzə", "композитор", "🎼", "compose → composer"],
+          ["dancer", "ˈdɑːnsə", "танцор, танцовщица", "💃", "dance → dancer"],
+          ["director", "dəˈrektə", "режиссёр", "🎬", "direct → director"],
+          ["inventor", "ɪnˈventə", "изобретатель", "💡", "invent → inventor"],
+          ["artist", "ˈɑːtɪst", "художник", "🖼️", "art → artist"],
+          ["novelist", "ˈnɒvəlɪst", "писатель-романист", "📚", "novel → novelist"],
+          ["politician", "ˌpɒləˈtɪʃn", "политик", "🏛️", "politics → politician"],
+          ["scientist", "ˈsaɪəntɪst", "учёный", "🔬", "science → scientist"]
+        ]
+      },
+      {
+        id: "past-time", title: "Past time expressions", ru: "Выражения прошедшего времени", lesson: "7B", page: 57,
+        activation: "When was the last time...? I travelled by bus this morning. — Where to?",
+        tips: [
+          { title: "Past time expressions", text: "Говорим last week, last month — без the: NOT the last week. Ago ставится после промежутка времени: three days ago, a year ago." }
+        ],
+        words: [
+          ["five minutes ago", "", "пять минут назад", "⏱️"],
+          ["yesterday", "ˈjestədeɪ", "вчера"],
+          ["yesterday morning", "", "вчера утром"],
+          ["last night", "", "вчера вечером, прошлой ночью", "🌙"],
+          ["the day before yesterday", "", "позавчера"],
+          ["three days ago", "", "три дня назад"],
+          ["last week", "", "на прошлой неделе"],
+          ["last month", "", "в прошлом месяце"],
+          ["last summer", "", "прошлым летом", "☀️"],
+          ["a year ago", "", "год назад"],
+          ["in 2017", "", "в 2017 году"]
+        ]
+      },
+      {
+        id: "directions", title: "Directions", ru: "Как пройти", lesson: "Practical English 4", page: 60,
+        activation: "Cover the phrases and look at the pictures. Say the phrases.",
+        words: [
+          ["turn left", "ˌtɜːn ˈleft", "поверните налево", "⬅️"],
+          ["turn right", "ˌtɜːn ˈraɪt", "поверните направо", "➡️"],
+          ["go straight on", "ˌgəʊ ˈstreɪt ɒn", "идите прямо", "⬆️"],
+          ["go past the church", "", "пройдите мимо церкви", "⛪"],
+          ["at the traffic lights", "ˈtræfɪk laɪts", "на светофоре", "🚦"],
+          ["on the corner", "ˈkɔːnə", "на углу"],
+          ["at the end of the street", "", "в конце улицы"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-9", source: "lesson", file: 9, page: "72, 76", icon: "🥫",
+    title: "Food containers and menus", ru: "Упаковки и меню",
+    groups: [
+      {
+        id: "containers", title: "Food containers", ru: "Упаковки для продуктов", lesson: "9B", page: 72,
+        activation: "Make phrases with the containers and these words: biscuits, cereal, Coke, crisps, jam, milk, salt, sugar, tuna.",
+        words: [
+          ["a bottle", "ˈbɒtl", "бутылка", "🍾", "a bottle of water"],
+          ["a box", "bɒks", "коробка", "📦", "a box of cereal"],
+          ["a can", "kæn", "банка (жестяная, для напитков)", "🥤", "a can of Coke"],
+          ["a carton", "ˈkɑːtn", "пакет (картонный)", "🧃", "a carton of milk"],
+          ["a jar", "dʒɑː", "банка (стеклянная)", "🫙", "a jar of jam"],
+          ["a packet", "ˈpækɪt", "пачка, упаковка", "", "a packet of biscuits / crisps"],
+          ["a tin", "tɪn", "консервная банка", "🥫", "a tin of tuna"]
+        ]
+      },
+      {
+        id: "menu", title: "Understanding a menu", ru: "Как читать меню", lesson: "Practical English 5", page: 76,
+        activation: "Cover the menu. In pairs, try to remember what's on it.",
+        words: [
+          ["a menu", "ˈmenjuː", "меню", "📋"],
+          ["a course", "kɔːs", "блюдо (часть обеда)", "", "2 courses £15.00"],
+          ["a starter", "ˈstɑːtə", "закуска (первое блюдо)", "🥗"],
+          ["a main course", "ˌmeɪn ˈkɔːs", "основное блюдо", "🍽️"],
+          ["soup", "suːp", "суп", "🍲", "onion soup"],
+          ["grilled", "grɪld", "приготовленный на гриле", "", "grilled chicken breast"],
+          ["home-made", "ˌhəʊm ˈmeɪd", "домашний, домашнего приготовления", "", "home-made ice cream"],
+          ["sauce", "sɔːs", "соус", "", "hot chocolate sauce"],
+          ["fresh", "freʃ", "свежий", "", "fresh fruit salad"],
+          ["vegetarian", "ˌvedʒəˈteəriən", "вегетарианский", "🥕"],
+          ["gluten-free", "ˌgluːtn ˈfriː", "без глютена"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-10", source: "lesson", file: 10, page: "81, 82", icon: "🔮",
+    title: "Holidays and the future", ru: "Путешествия и будущее",
+    groups: [
+      {
+        id: "city-holidays", title: "City holidays", ru: "Поездка по городам", lesson: "10B", page: 81,
+        activation: "With your partner, plan a dream trip. You are going to visit three cities in the same continent.",
+        tips: [
+          { title: "Making suggestions", text: "Let's go to... / Why don't we go to...? — That's a good idea." }
+        ],
+        words: [
+          ["book a flight", "", "забронировать авиабилет", "✈️", "or a train, accommodation"],
+          ["go by train", "", "ехать на поезде", "🚆", "or by bus, by plane"],
+          ["rent a car", "", "арендовать машину", "🚗", "or a flat"],
+          ["stay in a hotel", "", "остановиться в отеле", "🏨", "or a hostel"],
+          ["eat out", "", "есть в ресторанах (не дома)", "🍝", "in local restaurants"],
+          ["visit museums", "", "посещать музеи", "🏛️", "and art galleries"],
+          ["buy souvenirs", "ˈsuːvənɪəz", "покупать сувениры", "🎁"],
+          ["meet new people", "", "знакомиться с новыми людьми", "🤝"],
+          ["Why don't we...?", "", "Может, нам...? (предложение)"],
+          ["That's a good idea.", "", "Хорошая идея.", "👍"]
+        ]
+      },
+      {
+        id: "fortune", title: "Verb phrases", ru: "Что ждёт в будущем", lesson: "10C", page: 82,
+        activation: "What pictures can you see on the fortune teller's cards? Match the cards and verb phrases.",
+        words: [
+          ["a fortune teller", "ˈfɔːtʃuːn ˌtelə", "гадалка", "🔮"],
+          ["be lucky", "", "везти, быть удачливым", "🍀"],
+          ["have a surprise", "", "получить сюрприз", "❗"],
+          ["fall in love", "", "влюбиться", "❤️"],
+          ["get married", "", "пожениться, выйти замуж / жениться", "💍"],
+          ["become famous", "", "стать знаменитым", "⭐"],
+          ["travel", "ˈtrævl", "путешествовать", "🧳"],
+          ["meet somebody new", "", "познакомиться с кем-то новым"],
+          ["get a new job", "", "найти новую работу", "💼"],
+          ["get a lot of money", "", "получить много денег", "💰"],
+          ["move house", "", "переехать (в другой дом)", "📦"]
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "file-11", source: "lesson", file: 11, page: "87, 89, 90, 92", icon: "📱",
+    title: "Adverbs, the internet, transport", ru: "Наречия, интернет, транспорт",
+    groups: [
+      {
+        id: "adverbs", title: "Common adverbs", ru: "Наречия образа действия", lesson: "11A", page: 87,
+        activation: "Do you think people in your country drive dangerously? How about you?",
+        tips: [
+          { title: "Adverbs", text: "Обычно наречие = прилагательное + -ly: dangerous → dangerously, polite → politely. Исключения: good → well, hard → hard, fast → fast." }
+        ],
+        words: [
+          ["drive dangerously", "", "водить опасно", "🚗"],
+          ["drive slowly and carefully", "", "ездить медленно и осторожно", "🐢"],
+          ["speak foreign languages fluently", "", "свободно говорить на иностранных языках", "🗣️"],
+          ["treat tourists well", "", "хорошо относиться к туристам"],
+          ["talk loudly", "", "громко разговаривать", "📢"],
+          ["work hard", "", "усердно работать", "💪"],
+          ["take life seriously", "", "серьёзно относиться к жизни"],
+          ["treat people politely", "", "вежливо обращаться с людьми", "", "in shops and restaurants"],
+          ["dress well", "", "хорошо одеваться", "👔"],
+          ["wait patiently in queues", "", "терпеливо стоять в очередях"],
+          ["behave calmly in a crisis", "", "вести себя спокойно в трудной ситуации", "🧘"]
+        ]
+      },
+      {
+        id: "verb-infinitive", title: "Verbs that take the infinitive", ru: "Глаголы + to + инфинитив", lesson: "11B", page: 89,
+        tips: [
+          { title: "verb + to + infinitive", text: "После этих глаголов ставится to + инфинитив: I decided to save some money. NOT I decided save." }
+        ],
+        words: [
+          ["decide to (do)", "", "решить (сделать)", "", "I decided to save some money."],
+          ["forget to (do)", "", "забыть (сделать)"],
+          ["hope to (do)", "", "надеяться (сделать)", "🤞"],
+          ["learn to (do)", "", "научиться (делать)", "", "learn to play the guitar"],
+          ["need to (do)", "", "нужно (сделать)"],
+          ["plan to (do)", "", "планировать (сделать)"],
+          ["promise to (do)", "", "обещать (сделать)"],
+          ["remember to (do)", "", "не забыть (сделать)"],
+          ["try to (do)", "", "пытаться (сделать)"],
+          ["want to (do)", "", "хотеть (сделать)", "", "I want to go to Australia."]
+        ]
+      },
+      {
+        id: "internet", title: "Phones and the internet", ru: "Телефон и интернет", lesson: "11C", page: 90,
+        activation: "Which activities can you do when you aren't online?",
+        words: [
+          ["share a photo", "", "поделиться фото", "🖼️", "on a social media website"],
+          ["download an app", "", "скачать приложение", "⬇️"],
+          ["Skype a friend", "", "позвонить другу по Skype"],
+          ["upload a video", "", "загрузить видео (в сеть)", "⬆️"],
+          ["message a friend", "", "написать другу (в мессенджере)", "💬"],
+          ["post a tweet", "", "опубликовать твит", "🐦"],
+          ["send an email", "", "отправить электронное письмо", "📧"],
+          ["get directions", "", "проложить маршрут", "🗺️"],
+          ["get fitter", "", "прийти в лучшую форму", "🏃"],
+          ["listen to a song", "", "послушать песню", "🎧"],
+          ["wi-fi", "ˈwaɪ faɪ", "вай-фай", "📶"],
+          ["an attachment", "əˈtætʃmənt", "вложение (файл в письме)", "📎"],
+          ["log in", "ˌlɒg ˈɪn", "войти (в аккаунт)", "🔑"],
+          ["search", "sɜːtʃ", "искать; поиск", "🔍"],
+          ["broadband", "ˈbrɔːdbænd", "широкополосный интернет"]
+        ]
+      },
+      {
+        id: "transport", title: "Public transport", ru: "Общественный транспорт", lesson: "Practical English 6", page: 92,
+        activation: "Cover the words and look at the pictures. Say the words.",
+        words: [
+          ["a bus", "bʌs", "автобус", "🚌"],
+          ["a coach", "kəʊtʃ", "междугородний автобус", "🚍"],
+          ["a plane", "pleɪn", "самолёт", "✈️"],
+          ["a taxi", "ˈtæksi", "такси", "🚕", "or a cab"],
+          ["a train", "treɪn", "поезд", "🚆"],
+          ["a tram", "træm", "трамвай", "🚋"]
+        ]
+      },
+      {
+        id: "travel-words", title: "At the station and the airport", ru: "На вокзале и в аэропорту", lesson: "Practical English 6", page: 92,
+        activation: "Cover the facts and look at the headings. Try to remember two facts about each type of public transport.",
+        words: [
+          ["a taxi rank", "ˈtæksi ræŋk", "стоянка такси"],
+          ["a tip", "tɪp", "чаевые", "", "= some extra money, about 5–10%"],
+          ["a platform", "ˈplætfɔːm", "платформа, перрон", "🚉"],
+          ["the underground", "ˈʌndəgraʊnd", "метро", "🚇", "in London: the Tube"],
+          ["a bus stop", "ˈbʌs stɒp", "автобусная остановка", "🚏"],
+          ["buy a ticket in advance", "", "купить билет заранее", "🎫"],
+          ["check in", "ˌtʃek ˈɪn", "зарегистрироваться (на рейс)"],
+          ["security", "sɪˈkjʊərəti", "досмотр (служба безопасности)", "🛂"],
+          ["the departure lounge", "dɪˈpɑːtʃə laʊndʒ", "зал ожидания вылета"],
+          ["a gate", "geɪt", "выход на посадку"]
         ]
       }
     ]
